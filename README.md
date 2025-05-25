@@ -16,7 +16,7 @@ but Chainlink's CCIP can be used in monad. Therefore:
 
 - Using CCIP to send random numbers to Monad testnet (The function of selecting winner is implemented in _ccipReceive).
 
-- Using Keepers on Avalanche's fuji net to periodically call the sned function. 
+- Using Keepers on Avalanche's fuji net to periodically call the send function. 
 
 MonadRaffleReceiver contract on [explorer](https://testnet.monadexplorer.com/address/0x472ed72434B35Bd562886256B5De87E887340D25?tab=Contract).
 
