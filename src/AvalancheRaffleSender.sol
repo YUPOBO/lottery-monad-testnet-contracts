@@ -4,8 +4,9 @@ This is a web3 lottery automatically executed periodically on monad testnet.
 The probability of winning is proportional to the player's invested amount.
 In monad testnet, Chainlink has not yet implemented VRF and Keepers, 
 but Chainlink's CCIP can be used in monad. Therefore:
-    1.Using VRF on Avalanche's fuji net to generate random numbers in order to select the winner 
-    2.Using Keepers on Avalanche's fuji net to periodically call the pickWinner function in monad testnet 
+    1. Using VRF on Avalanche's fuji net to generate random numbers. 
+    2. Using CCIP to send random numbers to Monad testnet (The function of selecting winner is implemented in _ccipReceive).
+    3. Using Keepers on Avalanche's fuji net to periodically call the sned function. 
 This is the code for the sender deployed on Avalanche's fuji net.
  */
 pragma solidity 0.8.24;
