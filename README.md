@@ -1,6 +1,6 @@
 ## Monad Raffle (Testnet)
 
-This is the front-end code of Monad Raffle (Testnet) implemented using NEXT.js and ethers.
+This is the contracts code of Monad Raffle (Testnet) implemented using foundry(Solidity).
 
 project page: [monad-raffle-test.vercel.app](https://monad-raffle-test.vercel.app)
 
