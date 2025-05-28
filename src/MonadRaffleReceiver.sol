@@ -6,7 +6,7 @@ In monad testnet, Chainlink has not yet implemented VRF and Keepers,
 but Chainlink's CCIP can be used in monad. Therefore:
     1. Using VRF on Avalanche's fuji net to generate random numbers. 
     2. Using CCIP to send random numbers to Monad testnet (The function of selecting winner is implemented in _ccipReceive).
-    3. Using Keepers on Avalanche's fuji net to periodically call the sned function. 
+    3. Using Keepers on Avalanche's fuji net to periodically call the send function. 
 This is the code for the monad end.
  */
 pragma solidity 0.8.24;
@@ -121,10 +121,11 @@ contract MonadRaffleReceiver is CCIPReceiver, ReentrancyGuard, Ownable {
         s_lastReceivedText = lastReceivedText;
         //pick winner with wieght
         uint256 len = s_players.length;
-        uint256 totalAmount = 0;
+        /* uint256 totalAmount = 0;
         for (uint256 i = 0; i < len; i++) {
             totalAmount += s_playersBalance[s_players[i]];
-        }
+        } */
+        uint256 totalAmount = address(this).balance;
         uint256 winningNumber = lastReceivedText % totalAmount;
         uint256 cumulativeAmount = 0;
         address payable recentWinner = s_players[0];
