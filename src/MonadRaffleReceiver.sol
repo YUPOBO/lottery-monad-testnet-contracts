@@ -129,8 +129,9 @@ contract MonadRaffleReceiver is CCIPReceiver, ReentrancyGuard, Ownable {
         uint256 winningNumber = lastReceivedText % totalAmount;
         uint256 cumulativeAmount = 0;
         address payable recentWinner = s_players[0];
+        address payable[] memory players = s_players;
         for (uint256 i = 0; i < len; i++) {
-            cumulativeAmount += s_playersBalance[s_players[i]];
+            cumulativeAmount += s_playersBalance[players[i]];
             if (winningNumber < cumulativeAmount) {
                 recentWinner = s_players[i];
                 break;
@@ -139,7 +140,7 @@ contract MonadRaffleReceiver is CCIPReceiver, ReentrancyGuard, Ownable {
         s_recentWinner = recentWinner;
         // reset players informaiton
         for (uint256 i = 0; i < len; i++) {
-            s_playersBalance[s_players[i]] = 0;
+            s_playersBalance[players[i]] = 0;
         }
         s_players = new address payable[](0);
 
